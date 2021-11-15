@@ -1,7 +1,7 @@
 ﻿
 namespace Test_purchee
 {
-    partial class Form1
+    partial class Purchase
     {
         /// <summary>
         ///  Required designer variable.
@@ -32,9 +32,11 @@ namespace Test_purchee
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tbn_income = new System.Windows.Forms.Button();
             this.requriments = new System.Windows.Forms.TabControl();
+            this.btn_inventary = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -73,15 +75,6 @@ namespace Test_purchee
             this.tabPage1.Text = "მოთხოვნები";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(9, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 43);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "მოთხოვნის დამატება";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -90,6 +83,15 @@ namespace Test_purchee
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(1078, 514);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // tbn_income
+            // 
+            this.tbn_income.Location = new System.Drawing.Point(9, 12);
+            this.tbn_income.Name = "tbn_income";
+            this.tbn_income.Size = new System.Drawing.Size(105, 43);
+            this.tbn_income.TabIndex = 1;
+            this.tbn_income.Text = "მოთხოვნის დამატება";
+            this.tbn_income.UseVisualStyleBackColor = true;
             // 
             // requriments
             // 
@@ -101,15 +103,37 @@ namespace Test_purchee
             this.requriments.Size = new System.Drawing.Size(1086, 548);
             this.requriments.TabIndex = 0;
             // 
-            // Form1
+            // btn_inventary
+            // 
+            this.btn_inventary.Location = new System.Drawing.Point(156, 12);
+            this.btn_inventary.Name = "btn_inventary";
+            this.btn_inventary.Size = new System.Drawing.Size(103, 43);
+            this.btn_inventary.TabIndex = 2;
+            this.btn_inventary.Text = "ინვენტარის დამატება";
+            this.btn_inventary.UseVisualStyleBackColor = true;
+            this.btn_inventary.Click += new System.EventHandler(this.btn_inventary_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(283, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 43);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "დაამატე დეპარატამენტი";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // Purchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 711);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_inventary);
+            this.Controls.Add(this.tbn_income);
             this.Controls.Add(this.requriments);
-            this.Name = "Form1";
+            this.Name = "Purchase";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Purchase_Load);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage1.ResumeLayout(false);
@@ -125,8 +149,10 @@ namespace Test_purchee
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button tbn_income;
         private System.Windows.Forms.TabControl requriments;
+        private System.Windows.Forms.Button btn_inventary;
+        private System.Windows.Forms.Button button1;
     }
 }
 

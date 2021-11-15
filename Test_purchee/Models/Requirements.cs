@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Test_purchee.Models
 {
-    class Requirements
+    public class Requirements
     {
         public int Id { get; set; }
         public int InventoryId { get; set; }
