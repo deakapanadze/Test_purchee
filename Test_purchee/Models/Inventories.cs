@@ -10,7 +10,7 @@ namespace Test_purchee.Models
     public class Inventories
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string NameInv { get; set; }
 
     }
 }

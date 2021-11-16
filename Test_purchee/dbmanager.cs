@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Test_purchee.Models;
-using 
+
 
 namespace Test_purchee
 {
@@ -104,7 +104,7 @@ namespace Test_purchee
             SqlCommand cmd = new SqlCommand("AddInventary");
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@Name", test.Name);
+            cmd.Parameters.AddWithValue("@NameInv", test.NameInv);
             
             using (SqlConnection conn = new SqlConnection(Purchase))
             {
@@ -115,49 +115,23 @@ namespace Test_purchee
             }
         }
 
-
-
-        // join
-
-
-        public List<Requirements> GETpurchase()
+        public void Adddepartament(Departments test)
         {
-            List<Requirements> Requirements = new List<Requirements>();
-
-            SqlCommand cmd = new SqlCommand("[GETpurchase]");
+            SqlCommand cmd = new SqlCommand("Adddepartament");
             cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@NameDep", test.NameDep);
 
             using (SqlConnection conn = new SqlConnection(Purchase))
             {
                 cmd.Connection = conn;
                 conn.Open();
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Requirements Rqrnts = new Requirements();
-
-
-
-                        Rqrnts.Id = Convert.ToInt32(reader["Id"]);
-                        Rqrnts.Name = Convert.ToString(reader["Name"]);
-                        //Rqrnts.InventoryId = Convert.ToInt32(reader["InventoryId"]);
-                        //Rqrnts.Quantity = Convert.ToInt32(reader["Quantity"]);
-                        //Rqrnts.DepartmentID = Convert.ToInt32(reader["DepartmentID"]);
-                        //Rqrnts.UserId = Convert.ToInt32(reader["UserId"]);
-                        //Rqrnts.Date = Convert.ToDateTime(reader["Date"]);
-                        //Rqrnts.Description = Convert.ToString(reader["Description"]);
-
-
-                        Requirements.Add(Rqrnts);
-
-                    }
-                    reader.Close();
-                }
-
-                return Requirements.ToList();
+                cmd.ExecuteScalar();
+                conn.Close();
             }
         }
+
+
 
 
     }

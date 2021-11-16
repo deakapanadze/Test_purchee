@@ -24,7 +24,7 @@ namespace Test_purchee
         private void save_inventary_Click(object sender, EventArgs e)
         {
             Inventories inventary = new Inventories();
-            inventary.Name = txt_inventary.Text;
+            inventary.NameInv = txt_inventary.Text;
 
             db.AddInventary(inventary);
             this.Close();

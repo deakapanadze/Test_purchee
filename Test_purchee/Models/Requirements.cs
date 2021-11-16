@@ -10,6 +10,7 @@ namespace Test_purchee.Models
     {
         public int Id { get; set; }
         public int InventoryId { get; set; }
+        public Inventories Inventaries{ get; set; }
         public int Quantity { get; set; }
         public int DepartmentID { get; set; }
         public int UserId { get; set; }
