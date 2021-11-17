@@ -1,7 +1,7 @@
 ﻿
 namespace Test_purchee
 {
-    partial class InventariesForm
+    partial class DepartamentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,8 @@ namespace Test_purchee
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_inventary = new System.Windows.Forms.TextBox();
-            this.save_inventary = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -39,51 +39,50 @@ namespace Test_purchee
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(94, 18);
+            this.label1.Location = new System.Drawing.Point(116, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 15);
+            this.label1.Size = new System.Drawing.Size(152, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "გთხოვთ აირჩიოთ ნივთი";
+            this.label1.Text = "აირჩიეთ დეპარტამენტი";
             // 
-            // txt_inventary
+            // textBox1
             // 
-            this.txt_inventary.Location = new System.Drawing.Point(94, 58);
-            this.txt_inventary.Name = "txt_inventary";
-            this.txt_inventary.Size = new System.Drawing.Size(158, 23);
-            this.txt_inventary.TabIndex = 1;
+            this.textBox1.Location = new System.Drawing.Point(108, 59);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(160, 23);
+            this.textBox1.TabIndex = 1;
             // 
-            // save_inventary
+            // button1
             // 
-            this.save_inventary.BackColor = System.Drawing.Color.ForestGreen;
-            this.save_inventary.Location = new System.Drawing.Point(324, 103);
-            this.save_inventary.Name = "save_inventary";
-            this.save_inventary.Size = new System.Drawing.Size(92, 30);
-            this.save_inventary.TabIndex = 2;
-            this.save_inventary.Text = "დამატება";
-            this.save_inventary.UseVisualStyleBackColor = false;
-            this.save_inventary.Click += new System.EventHandler(this.save_inventary_Click);
+            this.button1.Location = new System.Drawing.Point(326, 100);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 32);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "დამატება";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 150);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 170);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(420, 200);
+            this.dataGridView1.Size = new System.Drawing.Size(405, 200);
             this.dataGridView1.TabIndex = 3;
             // 
-            // InventariesForm
+            // DepartamentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 362);
+            this.ClientSize = new System.Drawing.Size(435, 382);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.save_inventary);
-            this.Controls.Add(this.txt_inventary);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "InventariesForm";
-            this.Text = "Inventaries";
-            this.Load += new System.EventHandler(this.InventariesForm_Load);
+            this.Name = "DepartamentForm";
+            this.Text = "DepartamentForm";
+            this.Load += new System.EventHandler(this.DepartamentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -93,8 +92,8 @@ namespace Test_purchee
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_inventary;
-        private System.Windows.Forms.Button save_inventary;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

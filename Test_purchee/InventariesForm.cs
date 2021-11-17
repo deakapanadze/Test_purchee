@@ -31,5 +31,16 @@ namespace Test_purchee
 
 
         }
+
+
+        private void Getinventary()
+        {
+            dataGridView1.DataSource = db.Getinventary();
+        }
+
+        private void InventariesForm_Load(object sender, EventArgs e)
+        {
+            Getinventary();
+        }
     }
 }

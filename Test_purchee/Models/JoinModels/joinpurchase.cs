@@ -9,6 +9,13 @@ namespace Test_purchee.Models.JoinModels
     public class joinpurchase
     {
         public int Id { get; set; }
-        public string name { get; set; }
+        public int Quantity { get; set; }
+        public int UserId { get; set; }
+        public DateTime Date { get; set; }
+        public string Description { get; set; }
+        public string NameDep { get; set; }
+        public string NameInv { get; set; }
+
+
     }
 }

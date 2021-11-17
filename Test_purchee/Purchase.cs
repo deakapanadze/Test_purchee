@@ -30,13 +30,14 @@ namespace Test_purchee
 
         private void GetInComes()
         {
-            dataGridView1.DataSource = db.GetInComes();
+           // dataGridView1.DataSource = db.GetInComes();
 
         }
 
         private void GetRequirements()
         {
             dataGridView2.DataSource = db.GetRequirements();
+            dataGridView3.DataSource = db.GETpurchase();
         }
 
        
@@ -44,7 +45,29 @@ namespace Test_purchee
         private void btn_inventary_Click(object sender, EventArgs e)
         {
             InventariesForm addInventories = new InventariesForm();
+            //ფანჯარა რომ ცენტრში გამოიტანოს
+            addInventories.StartPosition = FormStartPosition.CenterScreen;
             addInventories.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DepartamentForm departament = new DepartamentForm();
+            //ფანჯარა რომ ცენტრში გამოიტანოს
+            departament.StartPosition = FormStartPosition.CenterScreen;
+            departament.Show();
+            
+        }
+
+       
+
+        private void tbn_income_Click(object sender, EventArgs e)
+        {   
+            AddRequirementsForm addReq = new AddRequirementsForm();
+            //ფანჯარა რომ ცენტრში გამოიტანოს
+            addReq.StartPosition = FormStartPosition.CenterScreen;
+            addReq.Show();
+            GetRequirements();
         }
     }
 }

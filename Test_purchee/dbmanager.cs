@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Test_purchee.Models;
-
+using Test_purchee.Models.JoinModels;
 
 namespace Test_purchee
 {
@@ -81,7 +81,7 @@ namespace Test_purchee
                         Rqrnts.InventoryId = Convert.ToInt32(reader["InventoryId"]);
                         Rqrnts.Quantity = Convert.ToInt32(reader["Quantity"]);
                         Rqrnts.DepartmentID = Convert.ToInt32(reader["DepartmentID"]);
-                        Rqrnts.UserId = Convert.ToInt32(reader["UserId"]);
+                        //Rqrnts.UserId = Convert.ToInt32(reader["UserId"]);
                         Rqrnts.Date = Convert.ToDateTime(reader["Date"]);
                         Rqrnts.Description = Convert.ToString(reader["Description"]);
 
@@ -115,6 +115,8 @@ namespace Test_purchee
             }
         }
 
+        //დეპარტამენტების დამატება 
+
         public void Adddepartament(Departments test)
         {
             SqlCommand cmd = new SqlCommand("Adddepartament");
@@ -131,6 +133,140 @@ namespace Test_purchee
             }
         }
 
+        // დაჯოინებულის წმაოღება
+
+        public List<joinpurchase>GETpurchase()
+        {
+            List<joinpurchase> list = new List<joinpurchase>();
+
+            SqlCommand cmd = new SqlCommand("[GETpurchase]");
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            using (SqlConnection conn = new SqlConnection(Purchase))
+            {
+                cmd.Connection = conn;
+                conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        joinpurchase joinp = new joinpurchase();
+
+
+
+                        joinp.Id = Convert.ToInt32(reader["Id"]);
+                        joinp.Quantity = Convert.ToInt32(reader["Quantity"]);
+                       // joinp.UserId = Convert.ToInt32(reader["UserId"]);
+                        joinp.Date = Convert.ToDateTime(reader["Date"]);
+                        joinp.Description = Convert.ToString(reader["Description"]);
+                        joinp.NameDep = Convert.ToString(reader["NameDep"]);
+                        joinp.NameInv = Convert.ToString(reader["NameInv"]);
+                        
+
+
+                        list.Add(joinp);
+
+                    }
+                    reader.Close();
+                }
+                return list.ToList();
+            }
+        }
+
+
+
+        //req დამატება 
+
+        public void AddRequirements(Requirements test)
+        {
+            SqlCommand cmd = new SqlCommand("AddRequirements");
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@InventoryId", test.InventoryId);
+            cmd.Parameters.AddWithValue("@Quantity", test.Quantity);
+            cmd.Parameters.AddWithValue("@DepartamentId", test.DepartmentID);
+            cmd.Parameters.AddWithValue("@Date", test.Date);
+            cmd.Parameters.AddWithValue("@Description", test.Description);
+
+
+            using (SqlConnection conn = new SqlConnection(Purchase))
+            {
+                cmd.Connection = conn;
+                conn.Open();
+                cmd.ExecuteScalar();
+                conn.Close();
+            }
+        }
+
+        // ინვენტარის წამოღება
+        public List<Inventories> Getinventary()
+        {
+            List<Inventories> list = new List<Inventories>();
+
+            SqlCommand cmd = new SqlCommand("[Getinventary]");
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            using (SqlConnection conn = new SqlConnection(Purchase))
+            {
+                cmd.Connection = conn;
+                conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Inventories inve = new Inventories();
+
+
+
+                        inve.Id = Convert.ToInt32(reader["Id"]);
+                        inve.NameInv = Convert.ToString(reader["NameInv"]);
+                    
+
+
+                        list.Add(inve);
+
+                    }
+                    reader.Close();
+                }
+                return list.ToList();
+            }
+        }
+
+
+        // განყოფილებების წამოღება 
+        public List<Departments> GetDepartament()
+        {
+            List<Departments> list = new List<Departments>();
+
+            SqlCommand cmd = new SqlCommand("[GetDepartament]");
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            using (SqlConnection conn = new SqlConnection(Purchase))
+            {
+                cmd.Connection = conn;
+                conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Departments Depart = new Departments();
+
+
+
+                        Depart.Id = Convert.ToInt32(reader["Id"]);
+                        Depart.NameDep = Convert.ToString(reader["NameDep"]);
+                        //Depart.ParentID = Convert.ToInt32(reader["ParentID"]);
+
+
+
+                        list.Add(Depart);
+
+                    }
+                    reader.Close();
+                }
+                return list.ToList();
+            }
+        }
 
 
 
