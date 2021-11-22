@@ -60,7 +60,6 @@ namespace Test_purchee
             this.button1.TabIndex = 2;
             this.button1.Text = "დამატება";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -82,7 +81,6 @@ namespace Test_purchee
             this.Controls.Add(this.label1);
             this.Name = "DepartamentForm";
             this.Text = "DepartamentForm";
-            this.Load += new System.EventHandler(this.DepartamentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

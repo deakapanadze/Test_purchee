@@ -8,8 +8,8 @@ namespace Test_purchee.Models
 {
     public class Departments
     {
-        public int Id { get; set; }
-        public string NameDep { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
         public int ParentID { get; set; }
     }
 }

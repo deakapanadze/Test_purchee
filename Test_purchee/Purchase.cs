@@ -19,28 +19,28 @@ namespace Test_purchee
         {
             InitializeComponent();
         }
-      
+
 
         private void Purchase_Load(object sender, EventArgs e)
         {
-            GetInComes();
-            GetRequirements();
-        }
-
-
-        private void GetInComes()
-        {
-           // dataGridView1.DataSource = db.GetInComes();
+            Refresh();
 
         }
 
-        private void GetRequirements()
+
+        //private void GetInComes()
+        // {
+        //dataGridView1.DataSource = db.GetInComes();
+
+        // }
+
+        private void Refresh()
         {
             dataGridView2.DataSource = db.GetRequirements();
             dataGridView3.DataSource = db.GETpurchase();
         }
 
-       
+
 
         private void btn_inventary_Click(object sender, EventArgs e)
         {
@@ -56,18 +56,18 @@ namespace Test_purchee
             //ფანჯარა რომ ცენტრში გამოიტანოს
             departament.StartPosition = FormStartPosition.CenterScreen;
             departament.Show();
-            
+
         }
 
-       
+
 
         private void tbn_income_Click(object sender, EventArgs e)
-        {   
-            AddRequirementsForm addReq = new AddRequirementsForm();
-            //ფანჯარა რომ ცენტრში გამოიტანოს
+        {
+            AddRequirementsForm addReq = new AddRequirementsForm(this);
             addReq.StartPosition = FormStartPosition.CenterScreen;
-            addReq.Show();
-            GetRequirements();
+            addReq.ShowDialog();
+            Refresh();
+
         }
     }
 }

@@ -15,6 +15,8 @@ namespace Test_purchee
     public class dbmanager
     {
         public static string Purchase = ConfigurationManager.ConnectionStrings["Purchase"].ConnectionString;
+        public static string TsgDB = ConfigurationManager.ConnectionStrings["TsgDB"].ConnectionString;
+
 
         //მოთხოვნის წამოღების მეთოდი
         public List<Incomes> GetInComes()
@@ -54,7 +56,7 @@ namespace Test_purchee
             }
         }
 
-       
+
 
         //შესყიდვების წამოღების მეთოდი
 
@@ -73,7 +75,7 @@ namespace Test_purchee
                 {
                     while (reader.Read())
                     {
-                        Requirements Rqrnts= new Requirements();
+                        Requirements Rqrnts = new Requirements();
 
 
 
@@ -105,7 +107,7 @@ namespace Test_purchee
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@NameInv", test.NameInv);
-            
+
             using (SqlConnection conn = new SqlConnection(Purchase))
             {
                 cmd.Connection = conn;
@@ -117,25 +119,25 @@ namespace Test_purchee
 
         //დეპარტამენტების დამატება 
 
-        public void Adddepartament(Departments test)
-        {
-            SqlCommand cmd = new SqlCommand("Adddepartament");
-            cmd.CommandType = CommandType.StoredProcedure;
+        //public void Adddepartament(Departments test)
+        //{
+        //    SqlCommand cmd = new SqlCommand("Adddepartament");
+        //    cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@NameDep", test.NameDep);
+        //    cmd.Parameters.AddWithValue("@NameDep", test.NameDep);
 
-            using (SqlConnection conn = new SqlConnection(Purchase))
-            {
-                cmd.Connection = conn;
-                conn.Open();
-                cmd.ExecuteScalar();
-                conn.Close();
-            }
-        }
+        //    using (SqlConnection conn = new SqlConnection(Purchase))
+        //    {
+        //        cmd.Connection = conn;
+        //        conn.Open();
+        //        cmd.ExecuteScalar();
+        //        conn.Close();
+        //    }
+        //}
 
         // დაჯოინებულის წმაოღება
 
-        public List<joinpurchase>GETpurchase()
+        public List<joinpurchase> GETpurchase()
         {
             List<joinpurchase> list = new List<joinpurchase>();
 
@@ -156,12 +158,12 @@ namespace Test_purchee
 
                         joinp.Id = Convert.ToInt32(reader["Id"]);
                         joinp.Quantity = Convert.ToInt32(reader["Quantity"]);
-                       // joinp.UserId = Convert.ToInt32(reader["UserId"]);
+                        // joinp.UserId = Convert.ToInt32(reader["UserId"]);
                         joinp.Date = Convert.ToDateTime(reader["Date"]);
                         joinp.Description = Convert.ToString(reader["Description"]);
-                        joinp.NameDep = Convert.ToString(reader["NameDep"]);
+                        joinp.Name = Convert.ToString(reader["Name"]);
                         joinp.NameInv = Convert.ToString(reader["NameInv"]);
-                        
+
 
 
                         list.Add(joinp);
@@ -183,8 +185,8 @@ namespace Test_purchee
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@InventoryId", test.InventoryId);
+            cmd.Parameters.AddWithValue("@DepartmentID", test.DepartmentID);
             cmd.Parameters.AddWithValue("@Quantity", test.Quantity);
-            cmd.Parameters.AddWithValue("@DepartamentId", test.DepartmentID);
             cmd.Parameters.AddWithValue("@Date", test.Date);
             cmd.Parameters.AddWithValue("@Description", test.Description);
 
@@ -220,7 +222,7 @@ namespace Test_purchee
 
                         inve.Id = Convert.ToInt32(reader["Id"]);
                         inve.NameInv = Convert.ToString(reader["NameInv"]);
-                    
+
 
 
                         list.Add(inve);
@@ -234,11 +236,11 @@ namespace Test_purchee
 
 
         // განყოფილებების წამოღება 
-        public List<Departments> GetDepartament()
+        public List<Departments> GetDepartaments2()
         {
             List<Departments> list = new List<Departments>();
 
-            SqlCommand cmd = new SqlCommand("[GetDepartament]");
+            SqlCommand cmd = new SqlCommand("[GetDepartaments2]");
             cmd.CommandType = CommandType.StoredProcedure;
 
             using (SqlConnection conn = new SqlConnection(Purchase))
@@ -253,9 +255,9 @@ namespace Test_purchee
 
 
 
-                        Depart.Id = Convert.ToInt32(reader["Id"]);
-                        Depart.NameDep = Convert.ToString(reader["NameDep"]);
-                        //Depart.ParentID = Convert.ToInt32(reader["ParentID"]);
+                        Depart.ID = Convert.ToInt32(reader["ID"]);
+                        Depart.Name = Convert.ToString(reader["Name"]);
+                        Depart.ParentID = Convert.ToInt32(reader["ParentID"]);
 
 
 

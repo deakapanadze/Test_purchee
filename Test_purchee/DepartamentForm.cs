@@ -19,23 +19,23 @@ namespace Test_purchee
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Departments dep = new Departments();
-            dep.NameDep = textBox1.Text;
-            db.Adddepartament(dep);
-            this.Close();
-          }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //  //  Departments dep = new Departments();
+        //  //  dep.NameDep = textBox1.Text;
+        //  //  db.Adddepartament(dep);
+        //  //  this.Close();
+        //  //}
 
 
-        private void GetDepartament()
-        {
-            dataGridView1.DataSource = db.GetDepartament();
-        }
+        //private void GetDepartament()
+        //{
+        //    dataGridView1.DataSource = db.GetDepartament();
+        //}
 
-        private void DepartamentForm_Load(object sender, EventArgs e)
-        {
-            GetDepartament();
-        }
+        //private void DepartamentForm_Load(object sender, EventArgs e)
+        //{
+        //    GetDepartament();
+        //}
     }
 }

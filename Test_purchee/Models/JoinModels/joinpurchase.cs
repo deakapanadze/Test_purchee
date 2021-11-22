@@ -13,7 +13,7 @@ namespace Test_purchee.Models.JoinModels
         public int UserId { get; set; }
         public DateTime Date { get; set; }
         public string Description { get; set; }
-        public string NameDep { get; set; }
+        public string Name { get; set; }
         public string NameInv { get; set; }
 
 

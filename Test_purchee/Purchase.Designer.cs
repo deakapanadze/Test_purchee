@@ -124,7 +124,7 @@ namespace Test_purchee
             // 
             this.button1.Location = new System.Drawing.Point(283, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 43);
+            this.button1.Size = new System.Drawing.Size(131, 43);
             this.button1.TabIndex = 3;
             this.button1.Text = "დაამატე დეპარატამენტი";
             this.button1.UseVisualStyleBackColor = true;

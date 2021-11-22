@@ -14,10 +14,11 @@ namespace Test_purchee
     public partial class AddRequirementsForm : Form
     {
         dbmanager db = new dbmanager();
-        
-        public AddRequirementsForm()
+        Purchase _form;
+
+        public AddRequirementsForm(Purchase form1)
         {
-           
+            this._form = form1;
             InitializeComponent();
         }
 
@@ -25,26 +26,25 @@ namespace Test_purchee
         private void btn_Add_Click(object sender, EventArgs e)
         {
             Requirements requirements = new Requirements();
+            requirements.InventoryId = Convert.ToInt32(cmb_inventary.SelectedValue);
+            requirements.DepartmentID = Convert.ToInt32(cmb_Department.SelectedValue);
             requirements.Quantity = Convert.ToInt32(txt_Quantity.Text);
             requirements.Date = Convert.ToDateTime(dtp_Date.Text);
-            requirements.DepartmentID = Convert.ToInt32(cmb_Department.SelectedValue);
-            requirements.InventoryId = Convert.ToInt32(cmb_inventary.SelectedValue);
             requirements.Description = Convert.ToString(txt_Description.Text);
-
-
-
 
             db.AddRequirements(requirements);
             this.Close();
+           
+
         }
 
-       
+
         private void AddRequirementsForm_Load(object sender, EventArgs e)
         {
             // ასარჩევი დეპარტამენტი Combox
-            cmb_Department.DataSource = db.GetDepartament();
-            cmb_Department.DisplayMember = "NameDep";
-            cmb_Department.ValueMember = "Id";
+            cmb_Department.DataSource = db.GetDepartaments2();
+            cmb_Department.DisplayMember = "Name";
+            cmb_Department.ValueMember = "ID";
 
             // ასარჩევი ინვენტარი Combox
             cmb_inventary.DataSource = db.Getinventary();
